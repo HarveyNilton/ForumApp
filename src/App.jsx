@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-import ForumForm from './components/ForumForm'
 import ListUser from './components/ListUser'
-import { getUserThunk } from './store/slices/forumList.slice'
+import User from './components/User'
+import { getUserThunk } from './store/slices/userList.slice'
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
         isLoading && <div className='loading'><div className='spinner'></div></div>
       }
       <div className="containerUser">
-        <ForumForm
+        <User
           userSelected={userSelected}
           onClickUserSelected={onClickUserSelected} />
 

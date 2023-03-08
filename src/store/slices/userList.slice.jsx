@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setIsLoading } from './isLoading.slice';
 
-export const forumListslice = createSlice({
-    name: 'userForum',
+export const userListslice = createSlice({
+    name: 'user',
     initialState: [],
     reducers: {
-        setUserForum: (state, action) => {
-            const userForum = action.payload
-            return userForum
+        setUser: (state, action) => {
+            const user = action.payload
+            return user
         }
     }
 })
@@ -17,7 +17,7 @@ export const forumListslice = createSlice({
 export const getUserThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     axios.get('http://localhost:8000/api/v1/user/')
-        .then((res) => dispatch(setUserForum(res.data)))
+        .then((res) => dispatch(setUser(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
@@ -42,6 +42,6 @@ export const deleteUserThunk = (id) => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const { setUserForum } = forumListslice.actions;
+export const { setUser } = userListslice.actions;
 
-export default forumListslice.reducer;
+export default userListslice.reducer;

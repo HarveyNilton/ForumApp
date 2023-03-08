@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { createUserThunk, updateUserThunk } from '../store/slices/forumList.slice';
+import { createUserThunk, updateUserThunk } from '../store/slices/userList.slice';
 
-const ForumForm = ({ userSelected, onClickUserSelected }) => {
+
+const User = ({ userSelected, onClickUserSelected }) => {
 
     const { handleSubmit, register, reset } = useForm()
 
@@ -76,4 +77,4 @@ const ForumForm = ({ userSelected, onClickUserSelected }) => {
     );
 };
 
-export default ForumForm;
+export default User;

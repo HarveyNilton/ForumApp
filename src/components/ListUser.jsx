@@ -1,20 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUserThunk } from '../store/slices/forumList.slice';
+import { deleteUserThunk } from '../store/slices/userList.slice';
+
 
 const ListUser = ({onClickUserSelected}) => {
 
-    const userForum = useSelector(state => state.userForum)
+    const user = useSelector(state => state.user)
 
     const dispatch = useDispatch()
-    console.log(userForum);
+    console.log(user);
 
 
     return (
         <div className='cont-user'>
     
             {
-                userForum.map(user =>(
+                user.map(user =>(
                     <ul key={user.id} className='user-car' >
                         <li>{user.name}</li>
                         <li>{user.lastname}</li>
