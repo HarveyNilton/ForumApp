@@ -8,8 +8,7 @@ const ListUser = ({onClickUserSelected}) => {
     const user = useSelector(state => state.user)
 
     const dispatch = useDispatch()
-    console.log(user);
-
+    
 
     return (
         <div className='cont-user'>
