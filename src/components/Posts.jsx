@@ -6,7 +6,7 @@ const Posts = () => {
 
     const posts = useSelector(state => state.posts)
     
-    console.log(posts[0].id);
+ 
     return (
         <div className='content-gene-forum'>
             <section className='content-list-forum'>
