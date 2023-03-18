@@ -4,11 +4,13 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import ListUser from './components/ListUser'
 import Posts from './components/Posts'
+import ProtectedRouter from './components/ProtectedRouter'
 import User from './components/User'
 import EmailVerificationPage from './pages/EmailVerificationPage'
 import ForumPage from './pages/ForumPage'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import PostPage from './pages/PostPage'
 import RegisterPage from './pages/RegisterPage'
 import { getAllPostsThunk } from './store/slices/postsList.slice'
 import { getUserThunk } from './store/slices/userList.slice'
@@ -39,11 +41,16 @@ function App() {
   */}
 
         <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/verify" element={<EmailVerificationPage/>} />
-          <Route path="/forum" element={<ForumPage/>} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+
+          <Route element={<ProtectedRouter />}>
+            <Route path="/verify" element={<EmailVerificationPage />} />
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/category/:id" element={<PostPage />} />
+          </Route>
+
         </Routes>
 
       </HashRouter>

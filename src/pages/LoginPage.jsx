@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -9,13 +9,25 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const { handleSubmit, register, reset } = useForm()
 
+    const [reqError, setReqError] = useState(null)
+
     const submit = (userData) => {
         axios.post('http://localhost:7000/api/v1/auth/login', userData)
-            .then(() => navigate('/forum')
-               // localStorage.setItem('token', JSON.stringify(res.data))
-               //localStorage.setItem('token',res.data.token)
+            .then((res) => {
+                localStorage.setItem('token', res.data.token)
+                // localStorage.setItem('token', JSON.stringify(res.data))
+                navigate('/forum')
+
+
+
+            }
+
+
             )
-            .catch((error) => console.log(error.response))
+            .catch((err) => {
+                setReqError(err.response.data.message)
+            })
+        // .catch((error) => console.log(error.response))
     }
 
 
@@ -37,7 +49,11 @@ const LoginPage = () => {
                     <button>Submit</button>
                 </form>
 
+                {/*Mensaje de error*/}
+                {reqError && <p>{reqError}</p>}
+
                 <h3>Aun no tiene cuenta <Link to='/register'>register</Link></h3>
+
             </div>
 
         </div>
