@@ -11,11 +11,10 @@ const LoginPage = () => {
 
     const submit = (userData) => {
         axios.post('http://localhost:7000/api/v1/auth/login', userData)
-            .then((res) => {
-                navigate('/forum')
+            .then(() => navigate('/forum')
                // localStorage.setItem('token', JSON.stringify(res.data))
                //localStorage.setItem('token',res.data.token)
-            })
+            )
             .catch((error) => console.log(error.response))
     }
 

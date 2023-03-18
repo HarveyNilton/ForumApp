@@ -14,6 +14,7 @@ const EmailVerificationPage = () => {
         axios.post('http://localhost:7000/api/v1/auth/verify', { token })
             .then(() => setVerified(true))
             .catch((err) => console.log(err.response.data))
+            
     }, [])
 
     useEffect(() => {

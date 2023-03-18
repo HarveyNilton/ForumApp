@@ -6,6 +6,7 @@ import ListUser from './components/ListUser'
 import Posts from './components/Posts'
 import User from './components/User'
 import EmailVerificationPage from './pages/EmailVerificationPage'
+import ForumPage from './pages/ForumPage'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -42,11 +43,7 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/verify" element={<EmailVerificationPage/>} />
-          
-          {/* 
-       
-       
-        <Route path="/posts" element={<ForumPage/>} />*/}
+          <Route path="/forum" element={<ForumPage/>} />
         </Routes>
 
       </HashRouter>
